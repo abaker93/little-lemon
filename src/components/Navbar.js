@@ -4,20 +4,36 @@ import logo from "../assets/logo-horizontal.svg";
 const Navbar = () => {
 	return (
 		<header>
-			<nav className="navbar">
-				<img src={logo} alt="little lemon logo" />
-				<ul>
-					<li>Home</li>
-					<li>About</li>
-					<li>Menu</li>
-					<li>Reservations</li>
-					<li><button type="button" className="btn btn-primary">Order Online</button></li>
-				</ul>
-				<ul>
-					<li><button className="btn btn-link btn-icon"><Basket /></button></li>
-					<li><button className="btn btn-link btn-icon"><User /> Log in</button></li>
-				</ul>
-			</nav>
+			<div className="container-lg">
+				<nav className="navbar">
+					<img className="navbar-brand" src={logo} alt="little lemon logo" />
+					<ul className="navbar-nav">
+						<li className="nav-item">
+							<a href="#" className="nav-link">Home</a>
+						</li>
+						<li className="nav-item">
+							<a href="#" className="nav-link">About</a>
+						</li>
+						<li className="nav-item">
+							<a href="#" className="nav-link">Menu</a>
+						</li>
+						<li className="nav-item">
+							<a href="#" className="nav-link">Reservations</a>
+						</li>
+						<li className="nav-item">
+							<a href="#" className="nav-link btn btn-primary">Order Online</a>
+						</li>
+					</ul>
+					<ul className="navbar-nav">
+						<li className="nav-item">
+							<a href="#" className="nav-link btn btn-link btn-icon"><Basket /></a>
+						</li>
+						<li className="nav-item">
+							<a href="#" className="nav-link btn btn-link btn-icon"><User /> Log in</a>
+						</li>
+					</ul>
+				</nav>
+			</div>
 		</header>
 	)
 }
