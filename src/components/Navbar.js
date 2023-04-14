@@ -8,11 +8,11 @@ const Navbar = () => {
 					<li>About</li>
 					<li>Menu</li>
 					<li>Reservations</li>
-					<li><button type="button">Order Online</button></li>
+					<li><button type="button" className="btn btn-primary">Order Online</button></li>
 				</ul>
 				<ul>
-					<li><button className="btn-link btn-icon"><img src="" alt="shopping basket" /></button></li>
-					<li><button className="btn-link btn-icon"><img src="" alt="user" /> Log in</button></li>
+					<li><button className="btn btn-link btn-icon"><img src="" alt="shopping basket" /></button></li>
+					<li><button className="btn btn-link btn-icon"><img src="" alt="user" /> Log in</button></li>
 				</ul>
 			</nav>
 		</header>
