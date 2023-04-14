@@ -5,14 +5,10 @@ import { menu, reviews } from "../data/data";
 const Home = () => {
 	return (
 		<>
-			<Navbar />
-			<main>
-				<Hero />
-				<Specials />
-				<Reviews />
-				<About />
-			</main>
-			<Footer />
+			<Hero />
+			<Specials />
+			<Reviews />
+			<About />
 		</>
 	)
 }
