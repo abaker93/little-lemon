@@ -45,4 +45,13 @@ input {
   border-radius: 0;
 }
 
+.icon {
+  width: 100%;
+  max-width: 100px;
+}
+
+img {
+  max-width: 400px;
+}
+
 /*# sourceMappingURL=main.css.map */

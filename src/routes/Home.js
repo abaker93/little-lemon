@@ -1,6 +1,8 @@
-import Footer from "../components/Footer";
-import Navbar from "../components/Navbar";
 import { menu, reviews } from "../data/data";
+import { Moped, Star } from "../assets/icons";
+import heroImg from "../assets/restaurant-food.jpg";
+import aboutImg1 from "../assets/mario-adrian-1.jpg";
+import aboutImg2 from "../assets/mario-adrian-2.jpg";
 
 const Home = () => {
 	return (
@@ -22,7 +24,7 @@ const Hero = () => {
 				<button type="button">Reserve a table</button>
 			</div>
 			<div className="col">
-				<img src="" alt="bruchetta on serving tray" />
+				<img src={heroImg} alt="bruchetta on serving tray" />
 			</div>
 		</section>
 	)
@@ -49,7 +51,7 @@ const Specials = () => {
 							<p>{m.description}</p>
 						</div>
 						<div className="card-footer">
-							<button className="btn-link btn-icon">Order for delivery <img src="" alt="moped" /></button>
+							<button className="btn-link btn-icon">Order for delivery <Moped /></button>
 						</div>
 					</article>
 				))}
@@ -87,8 +89,8 @@ const Reviews = () => {
 							<div className="row">
 								{getStars(r.rating).map((s, index) => (
 									s === 1
-										? <img key={index} src="" alt="filled star" />
-										: <img key={index} src="" alt="outlined star" />
+										? <Star key={index} variant="fill" />
+										: <Star key={index} variant="outline" />
 								))}
 							</div>
 							<div className="row">
@@ -97,7 +99,7 @@ const Reviews = () => {
 								</div>
 								<div className="col">
 									<h3>{r.name}</h3>
-									<p>{r.handle}</p>
+									<p>@{r.handle}</p>
 								</div>
 							</div>
 						</div>
@@ -119,8 +121,8 @@ const About = () => {
 				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus nec fringilla accumsan, risus sem sollicitudin lacus, ut interdum tellus elit sed risus. Maecenas eget condimentum velit, sit amet feugiat lectus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</p>
 			</div>
 			<div className="col">
-				<img src="" alt="mario and adrian" />
-				<img src="" alt="mario and adrian" />
+				<img src={aboutImg1} alt="mario and adrian" />
+				<img src={aboutImg2} alt="mario and adrian" />
 			</div>
 		</section>
 	)

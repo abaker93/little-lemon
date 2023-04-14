@@ -1,9 +1,12 @@
+import { Facebook, Google, Instagram, Twitter, Youtube } from "../assets/icons";
+import logo from "../assets/logo-vertical.svg";
+
 const Footer = () => {
 	return (
 		<footer>
 			<div className="row">
 				<div className="col">
-					<img src="" alt="little lemon logo" />
+					<img src={logo} alt="little lemon logo" />
 				</div>
 
 				<div className="col">
@@ -31,11 +34,11 @@ const Footer = () => {
 
 				<div className="col">
 					<h4>Follow Us!</h4>
-					<img src="" alt="instagram" />
-					<img src="" alt="facebook" />
-					<img src="" alt="twitter" />
-					<img src="" alt="google" />
-					<img src="" alt="youtube" />
+					<Instagram />
+					<Facebook />
+					<Twitter />
+					<Google />
+					<Youtube />
 				</div>
 			</div>
 
