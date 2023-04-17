@@ -20,12 +20,12 @@ const Hero = () => {
 		<section id="hero">
 			<div className="container">
 				<div className="col">
-					<h1>Little Lemon <span>Chicago</span></h1>
+					<h1 className="title title-secondary">Little Lemon <span>Chicago</span></h1>
 					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis.</p>
-					<button type="button">Reserve a table</button>
+					<a href="#" className="btn btn-primary btn-dark">Reserve a table</a>
 				</div>
 				<div className="col">
-					<img src={heroImg} alt="bruchetta on serving tray" />
+					<img className="radius-lg" src={heroImg} alt="bruchetta on serving tray" />
 				</div>
 			</div>
 		</section>

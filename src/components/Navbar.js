@@ -24,9 +24,9 @@ const Navbar = () => {
 							<a href="#" className="nav-link btn btn-primary">Order Online</a>
 						</li>
 					</ul>
-					<ul className="navbar-nav">
+					<ul className="navbar-nav secondary">
 						<li className="nav-item">
-							<a href="#" className="nav-link btn btn-link btn-icon"><Basket /></a>
+							<a href="#" className="nav-link btn btn-link btn-icon"><Basket height="24" /></a>
 						</li>
 						<li className="nav-item">
 							<a href="#" className="nav-link btn btn-link btn-icon"><User /> Log in</a>
