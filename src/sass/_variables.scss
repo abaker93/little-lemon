@@ -1,5 +1,5 @@
-//~~	Colors  ~~~~~~~~~~~~~~~~~~~~~~~~//
-$gray-100:	#EDEFEE;
+//~~	Colors  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
+$gray-100:	#E4E5E5;
 $gray-200:	#CFCFCF;
 $gray-300:	#B0B0B0;
 $gray-400:	#919191;
@@ -16,15 +16,15 @@ $green:		#495E57;
 $yellow:	#F4CE14;
 $peach:		#EE9972;
 
-$green-100:	tint-color($green, 80%);
-$green-200:	tint-color($green, 60%);
-$green-300:	tint-color($green, 40%);
-$green-400:	tint-color($green, 20%);
+$green-100:	#EDF2F1;
+$green-200:	#C4CBC8;
+$green-300:	#9BA6A3;
+$green-400:	#72827D;
 $green-500:	$green;
-$green-600:	shade-color($green, 20%);
-$green-700:	shade-color($green, 40%);
-$green-800:	shade-color($green, 60%);
-$green-900:	shade-color($green, 80%);
+$green-600:	#3E504A;
+$green-700:	#33423D;
+$green-800:	#283430;
+$green-900:	#1D2623;
 
 $yellow-100:	tint-color($yellow, 80%);
 $yellow-200:	tint-color($yellow, 60%);
@@ -36,34 +36,77 @@ $yellow-700:	shade-color($yellow, 40%);
 $yellow-800:	shade-color($yellow, 60%);
 $yellow-900:	shade-color($yellow, 80%);
 
-$peach-100:	tint-color($peach, 80%);
-$peach-200:	tint-color($peach, 60%);
-$peach-300:	tint-color($peach, 40%);
-$peach-400:	tint-color($peach, 20%);
+$peach-100:	#FBF7F3;
+$peach-200:	#F5E3D6;
+$peach-300:	#FBDABB;
+$peach-400:	#EEB595;
 $peach-500:	$peach;
-$peach-600:	shade-color($peach, 20%);
-$peach-700:	shade-color($peach, 40%);
-$peach-800:	shade-color($peach, 60%);
-$peach-900:	shade-color($peach, 80%);
+$peach-600:	#D27A5A;
+$peach-700:	#B35D44;
+$peach-800:	#8C4331;
+$peach-900:	#662B20;
 
+//--	Theme Colors  --//
 $primary:		$green;
 $secondary:	$yellow;
 $tertiary:	$peach;
 $dark: 			$gray-700;
 $light:			$gray-100;
+//	 /Theme Colors    //
+////	/Colors																		//
 
 
 
 
 
-//~~	Border Radius  ~~~~~~~~~~~~~~~~~//
-$radius-0:	0;
-$radius-sm:	0.5rem;
-$radius-lg:	1rem;
+//~~	Border Radius  ~~~~~~~~~~~~~~~~~~~~~~~~~~~//
+$radius-0:			0;
+$radius-sm:			0.5rem;
+$radius-lg:			1rem;
+$radius-circle:	50rem;
+////	/Border Radius														//
 
 
 
 
 
-//~~	Transitions  ~~~~~~~~~~~~~~~~~~~//
+//~~	Transitions  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
 $transition:	all ease-in-out 0.15s;
+////	/Transitions															//
+
+
+
+
+
+//~~	Typography  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
+$font-family-serif:				'Markazi Text', serif;
+$font-family-sans-serif:	'Karla', sans-serif;
+
+//--	Font Sizes  --//
+$h1:	4rem;
+$h2:	2.5rem;
+$h3:	1.25rem;
+$h4:	1.125rem;
+$h5:	1rem;
+$h6:	0.875rem;
+//	 /Font Sizes    //
+
+//--	Font Weight  --//
+$font-weight-light:		100;
+$font-weight-regular:	400;
+$font-weight-medium:	500;
+$font-weight-bold:		700;
+$font-weight-bolder:	800;
+//	 /Font Weight    //
+////	/Typography																//
+
+
+
+
+
+//~~	Icon Height  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
+$icon-16:	1rem;
+$icon-18:	1.125rem;
+$icon-20:	1.25rem;
+$icon-24:	1.5rem;
+////	/Icon Height															//

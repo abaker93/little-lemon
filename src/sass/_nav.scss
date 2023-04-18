@@ -27,6 +27,7 @@
 .nav-link {
 	color: $primary;
 	transition: $transition;
+	font-weight: $font-weight-medium;
 
 	&:hover, &:focus {
 		color: rgba($primary, 0.8);

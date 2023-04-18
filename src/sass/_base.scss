@@ -3,3 +3,5 @@ img { max-width: 100%; }
 .radius-0		{ border-radius: 0 !important; }
 .radius-sm	{ border-radius: $radius-sm !important; }
 .radius-lg	{ border-radius: $radius-lg !important; }
+
+.justify-self-center { justify-self: center; }

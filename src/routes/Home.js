@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { menu, reviews } from "../data/data";
 import { Moped, Star } from "../assets/icons";
 import heroImg from "../assets/restaurant-food.jpg";
@@ -19,12 +20,12 @@ const Hero = () => {
 	return (
 		<section id="hero">
 			<div className="container">
-				<div className="col">
+				<div className="col text">
 					<h1 className="title title-secondary">Little Lemon <span>Chicago</span></h1>
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis.</p>
-					<a href="#" className="btn btn-primary btn-dark">Reserve a table</a>
+					<p className="large">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis.</p>
+					<Link to="" className="btn btn-primary btn-dark">Reserve a table</Link>
 				</div>
-				<div className="col">
+				<div className="col image">
 					<img className="radius-lg" src={heroImg} alt="bruchetta on serving tray" />
 				</div>
 			</div>
@@ -38,7 +39,7 @@ const Specials = () => {
 			<div className="container">
 				<div className="row heading">
 					<h2>Specials</h2>
-					<a href="#" className="btn btn-secondary">Menu</a>
+					<Link to="" className="btn btn-secondary">Menu</Link>
 				</div>
 				<div className="row specials">
 					{menu.filter(f => f.special).map(m => (
@@ -46,15 +47,17 @@ const Specials = () => {
 							<div className="card-image">
 								<img src={m.image} alt={m.name} />
 							</div>
-							<div className="card-heading">
-								<h3>{m.name}</h3>
-								<p className="price">${m.price}</p>
-							</div>
-							<div className="card-body">
-								<p>{m.description}</p>
-							</div>
-							<div className="card-footer">
-								<a href="#" className="btn btn-link btn-icon">Order for delivery <Moped /></a>
+							<div className="card-content">
+								<div className="card-heading">
+									<h3>{m.name}</h3>
+									<p className="price">${m.price}</p>
+								</div>
+								<div className="card-body">
+									<p>{m.description}</p>
+								</div>
+								<div className="card-footer">
+									<Link to="" className="btn btn-link btn-icon">Order for delivery <Moped /></Link>
+								</div>
 							</div>
 						</article>
 					))}
@@ -94,8 +97,8 @@ const Reviews = () => {
 								<div className="row rating">
 									{getStars(r.rating).map((s, index) => (
 										s === 1
-											? <Star key={index} variant="fill" />
-											: <Star key={index} variant="outline" />
+											? <Star key={index} fill="#F4CE14" variant="fill" />
+											: <Star key={index} fill="#EDEFEE"variant="outline" />
 									))}
 								</div>
 								<div className="row user">
@@ -109,7 +112,7 @@ const Reviews = () => {
 								</div>
 							</div>
 							<div className="card-body">
-								<p>{r.review}</p>
+								<p className="small">{r.review}</p>
 							</div>
 						</article>
 					))}
@@ -124,10 +127,10 @@ const About = () => {
 		<section id="about">
 			<div className="container">
 				<div className="col">
-					<h2>Little Lemon <span>Chicago</span></h2>
+					<h2 className="title title-primary">Little Lemon <span>Chicago</span></h2>
 					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus nec fringilla accumsan, risus sem sollicitudin lacus, ut interdum tellus elit sed risus. Maecenas eget condimentum velit, sit amet feugiat lectus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</p>
 				</div>
-				<div className="col">
+				<div className="col images">
 					<img src={aboutImg1} alt="mario and adrian" />
 					<img src={aboutImg2} alt="mario and adrian" />
 				</div>

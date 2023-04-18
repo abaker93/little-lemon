@@ -1,4 +1,12 @@
-.icon-16 { height: 1rem !important; }
-.icon-18 { height: 1.125rem !important; }
-.icon-20 { height: 1.25rem !important; }
-.icon-24 { height: 1.5rem !important; }
+.icon-16 { height: $icon-16 !important; }
+.icon-18 { height: $icon-18 !important; }
+.icon-20 { height: $icon-20 !important; }
+.icon-24 { height: $icon-24 !important; }
+
+a .icon {
+	transition: $transition;
+	
+	&:hover, &:focus {
+		opacity: 0.7;
+	}
+}
