@@ -1,0 +1,19 @@
+.chip {
+	border-radius: $radius-sm;
+	border: 2px solid $dark;
+	padding: 0.5rem;
+	display: grid;
+	align-content: center;
+	justify-content: center;
+	line-height: 0.5;
+
+	&.disabled {
+		border-color: $gray-200;
+		color: $gray-200;
+	}
+
+	&.selected {
+		background-color: $dark;
+		color: $white;
+	}
+}

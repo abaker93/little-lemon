@@ -1,0 +1,38 @@
+input[type=number] {
+	border: 0;
+	width: 2.2em;
+	padding: 0.25rem;
+	background: $gray-100;
+	border-radius: $radius-sm;
+	text-align: center;
+	font-size: 1.5rem;
+	color: $dark;
+}
+
+input[type=radio] {
+	position: relative;
+	height: 1.25em;
+	width: 1.25em;
+	border: 2px solid $primary;
+	border-radius: $radius-circle;
+	margin: 0;
+	margin-top: -0.15em;
+
+	&:checked::before {
+		content: '';
+		position: absolute;
+		width: 0.75em;
+		height: 0.75em;
+		background: $primary;
+		border-radius: $radius-circle;
+		left: calc(0.25em / 2);
+		top: calc(0.25em / 2);
+	}
+}
+
+label.required::after {
+	content: '*';
+	font-weight: $font-weight-bolder;
+	color: $tertiary;
+	margin-left: 0.5rem;
+}

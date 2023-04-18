@@ -1,0 +1,57 @@
+.stepper {
+	display: grid;
+	grid-auto-flow: column;
+	grid-auto-columns: 1fr;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.step {
+	display: grid;
+	justify-items: center;
+	gap: 0.5rem;
+	position: relative;
+
+	&:not(:first-child)::before,
+	&:not(:last-child)::after {
+		content: '';
+		width: calc(50% - 30px);
+		height: 1px;
+		position: absolute;
+		top: 1rem;
+		background-color: $gray-100;
+	}
+
+	&:not(:first-child)::before {
+		left: 0;
+	}
+
+	&:not(:last-child)::after {
+		right: 0;
+	}
+}
+
+.step-icon {
+	background-color: $gray-100;
+	padding: 0.5rem;
+	width: 2rem;
+	height: 2rem;
+	border-radius: $radius-circle;
+	line-height: 1;
+	text-align: center;
+	color: $gray-400;
+	font-weight: $font-weight-medium;
+}
+
+.step-label {
+	font-size: $h6;
+	color: $gray-500;
+	font-weight: $font-weight-medium;
+}
+
+.current, .complete {
+	.step-icon {
+		background-color: $primary;
+		color: $white;
+	}
+}

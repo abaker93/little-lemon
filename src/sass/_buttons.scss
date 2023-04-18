@@ -1,7 +1,7 @@
 .btn {
 	display: inline-block;
 	padding: 1rem 1.5rem;
-	border-radius: 50rem;
+	border-radius: $radius-pill;
 	line-height: 0.6;
 	font-weight: $font-weight-medium;
 	transition: $transition;

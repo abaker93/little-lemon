@@ -1,76 +1,18 @@
 .container {
-	max-width: 804px;
+	max-width: 836px;
 	margin: 0 auto;
+	padding-left: 1rem;
+	padding-right: 1rem;
 }
 
 .container-lg {
 	@extend .container;
 
-	max-width: 1140px;
+	max-width: 1172px;
 }
 
 .container-sm {
 	@extend .container;
 
-	max-width: 540px;
-}
-
-
-
-
-
-
-#stepper {
-	display: grid;
-	grid-template-columns: repeat(3, minmax(0, 1fr));
-	align-items: center;
-	justify-content: space-between;
-
-	.step {
-		justify-self: center;
-	}
-}
-
-.date-time {
-	display: grid;
-	grid-template-columns: 2fr 3fr;
-	gap: 3rem;
-}
-
-.cal-title {
-	display: grid;
-	grid-template-columns: repeat(3, auto);
-	gap: 1rem;
-	justify-content: space-between;
-}
-
-.cal-days, .cal-dates {
-	display: grid;
-	grid-template-columns: repeat(7, minmax(0, 1fr));
-	gap: 1fr;
-}
-
-.cal-day, .cal-date { justify-self: center; }
-
-.time-title {
-	display: grid;
-	grid-template-columns: auto auto;
-	justify-content: space-between;
-}
-
-.time-chips {
-	display: grid;
-	grid-template-columns: repeat(4, minmax(0, 1fr));
-	gap: 1fr;
-}
-
-.guests, .location {
-	display: grid;
-	grid-template-columns: 1fr 1fr;
-	justify-content: space-between;
-}
-
-.form-buttons {
-	display: grid;
-	justify-content: flex-end;
+	max-width: 572px;
 }

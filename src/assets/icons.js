@@ -38,6 +38,14 @@ export const Angle = ({ fill = defaultFill, height, direction = "left" }) => {
 	return;
 }
 
+export const Check = ({ fill = defaultFill, height }) => {
+	return (
+		<svg viewBox="0 0 33 25" fill={fill} className={`icon icon-check${height ? ` icon-${height}` : ""}`} xmlns="http://www.w3.org/2000/svg">
+			<path d="M12.2286 24.1451L0.799988 12.7166L4.02284 9.49372L12.2286 17.6766L29.5771 0.328003L32.8 3.57372L12.2286 24.1451Z" />
+		</svg>
+	)
+}
+
 export const Basket = ({ fill = defaultFill, height }) => {
 	return (
 		<svg viewBox="0 0 32 32" fill={fill} className={`icon icon-basket${height ? ` icon-${height}` : ""}`} xmlns="http://www.w3.org/2000/svg">
