@@ -1,6 +1,17 @@
+import Footer from "../components/Footer";
+import Navbar from "../components/Navbar";
+
 const Error = () => {
 	return (
-		<h1>Error</h1>
+		<>
+			<Navbar />
+			
+			<main>
+				<h1>Error</h1>
+			</main>
+
+			<Footer />
+		</>
 	)
 }
 
