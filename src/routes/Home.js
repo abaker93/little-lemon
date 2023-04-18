@@ -18,7 +18,7 @@ const Home = () => {
 
 const Hero = () => {
 	return (
-		<section id="hero">
+		<section id="hero" className="hero-home">
 			<div className="container">
 				<div className="col text">
 					<h1 className="title title-secondary">Little Lemon <span>Chicago</span></h1>

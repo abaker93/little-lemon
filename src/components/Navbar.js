@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { Basket, User } from "../assets/icons";
 import logo from "../assets/logo-horizontal.svg";
 
@@ -35,14 +35,29 @@ const mainNav = [
 	},
 ]
 
-const secondaryNav = []
+const secondaryNav = [
+	{
+		id: 0,
+		name: "",
+		path: "/cart",
+		icon: <Basket height="24" />
+	},
+	{
+		id: 1,
+		name: "Log in",
+		path: "/account",
+		icon: <User />
+	},
+]
 
 const Navbar = () => {
 	return (
 		<header>
 			<div className="container-lg">
 				<nav className="navbar">
-					<img className="navbar-brand" src={logo} alt="little lemon logo" />
+					<Link to="/" className="img-link">
+						<img className="navbar-brand" src={logo} alt="little lemon logo" />
+					</Link>
 					<ul className="navbar-nav">
 						{mainNav.map(m => (
 							<li key={m.id} className="nav-item">
@@ -64,12 +79,13 @@ const Navbar = () => {
 						))}
 					</ul>
 					<ul className="navbar-nav secondary">
-						<li className="nav-item">
-							<NavLink to="/check-out" className="nav-link btn btn-link btn-icon"><Basket height="24" /></NavLink>
-						</li>
-						<li className="nav-item">
-							<NavLink to="/user" className="nav-link btn btn-link btn-icon"><User /> Log in</NavLink>
-						</li>
+						{secondaryNav.map(s => (
+							<li className="nav-item">
+								<NavLink to={s.path} className="nav-link btn btn-link btn-icon">
+									{s.icon}{s.name}
+								</NavLink>
+							</li>
+						))}
 					</ul>
 				</nav>
 			</div>

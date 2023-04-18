@@ -17,10 +17,10 @@ const Hero = () => {
 			<div className="container">
 				<div className="col">
 					<h1>Reserve a Table</h1>
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis.</p>
+					<p className="large">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis.</p>
 				</div>
-				<div className="col">
-					<img src={heroImg} alt="preparing a dish" />
+				<div className="col image">
+					<img className="radius-lg" src={heroImg} alt="preparing a dish" />
 				</div>
 			</div>
 		</section>

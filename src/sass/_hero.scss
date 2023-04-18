@@ -1,0 +1,30 @@
+#hero {
+	background: $primary;
+	color: $white;
+	padding: 3rem 0;
+	margin-bottom: 10rem;
+
+	.container {
+		display: grid;
+		grid-template-columns: 3fr 2fr;
+		column-gap: 5rem;
+		align-items: start;
+		justify-content: space-between;
+	}
+
+	h1 { margin-bottom: 2rem; }
+	p:not(:last-child) { margin-bottom: 2rem; }
+
+	.image { position: relative; }
+
+	img {
+		aspect-ratio: 4 / 3;
+		object-fit: cover;
+		object-position: center;
+		position: absolute;
+	}
+
+	&.hero-home {
+		img { aspect-ratio: 3 / 4; }
+	}
+}
