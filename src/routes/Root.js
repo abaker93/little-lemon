@@ -6,8 +6,6 @@ import Footer from "../components/Footer";
 const Root = () => {
 	const page = useLocation();
 
-	console.log(page.pathname)
-
 	return (
 		<>
 			<Navbar />

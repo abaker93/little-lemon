@@ -1,54 +1,6 @@
 import { Link, NavLink } from "react-router-dom";
-import { Basket, User } from "../assets/icons";
+import { mainNav, secondaryNav } from "../data/data";
 import logo from "../assets/logo-horizontal.svg";
-
-const mainNav = [
-	{
-		id: 0,
-		name: "Home",
-		path: "/",
-		variant: "link"
-	},
-	{
-		id: 1,
-		name: "About",
-		path: "/about",
-		variant: "link"
-	},
-	{
-		id: 2,
-		name: "Menu",
-		path: "/menu",
-		variant: "link"
-	},
-	{
-		id: 3,
-		name: "Reservations",
-		path: "/reservations",
-		variant: "link"
-	},
-	{
-		id: 4,
-		name: "Order Online",
-		path: "/menu",
-		variant: "button"
-	},
-]
-
-const secondaryNav = [
-	{
-		id: 0,
-		name: "",
-		path: "/cart",
-		icon: <Basket height="24" />
-	},
-	{
-		id: 1,
-		name: "Log in",
-		path: "/account",
-		icon: <User />
-	},
-]
 
 const Navbar = () => {
 	return (
@@ -80,7 +32,7 @@ const Navbar = () => {
 					</ul>
 					<ul className="navbar-nav secondary">
 						{secondaryNav.map(s => (
-							<li className="nav-item">
+							<li key={s.id} className="nav-item">
 								<NavLink to={s.path} className="nav-link btn btn-link btn-icon">
 									{s.icon}{s.name}
 								</NavLink>

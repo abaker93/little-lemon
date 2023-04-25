@@ -23,7 +23,7 @@ const Hero = () => {
 				<div className="col text">
 					<h1 className="title title-secondary">Little Lemon <span>Chicago</span></h1>
 					<p className="large">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis.</p>
-					<Link to="" className="btn btn-primary btn-dark">Reserve a table</Link>
+					<Link to="/reservations" className="btn btn-primary btn-dark">Reserve a table</Link>
 				</div>
 				<div className="col image">
 					<img className="radius-lg" src={heroImg} alt="bruchetta on serving tray" />

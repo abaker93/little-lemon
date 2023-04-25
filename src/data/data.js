@@ -1,3 +1,5 @@
+import { Basket, User } from "../assets/icons";
+
 import bruchetta from "../assets/bruchetta.jpg";
 import greekSalad from "../assets/greek-salad.jpg";
 import lemonDessert from "../assets/lemon-dessert.jpg";
@@ -6,6 +8,56 @@ import adrianaMitchell from "../assets/reviews/adriana-mitchell.jpg";
 import bethanyRedi from "../assets/reviews/bethany-redi.jpg";
 import destinyGarland from "../assets/reviews/destiny-garland.jpg";
 import eltonHayes from "../assets/reviews/elton-hayes.jpg";
+
+export const mainNav = [
+	{
+		id: 0,
+		name: "Home",
+		path: "/",
+		variant: "link"
+	},
+	{
+		id: 1,
+		name: "About",
+		path: "/about",
+		variant: "link"
+	},
+	{
+		id: 2,
+		name: "Menu",
+		path: "/menu",
+		variant: "link"
+	},
+	{
+		id: 3,
+		name: "Reservations",
+		path: "/reservations",
+		variant: "link"
+	},
+	{
+		id: 4,
+		name: "Order Online",
+		path: "/menu",
+		variant: "button"
+	},
+]
+
+export const secondaryNav = [
+	{
+		id: 0,
+		name: "",
+		path: "/cart",
+		icon: <Basket height="24" />
+	},
+	{
+		id: 1,
+		name: "Log in",
+		path: "/account",
+		icon: <User />
+	},
+]
+
+
 
 export const menu = [
 	{

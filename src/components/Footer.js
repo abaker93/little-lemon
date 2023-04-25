@@ -1,4 +1,5 @@
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
+import { mainNav } from "../data/data";
 import { Facebook, Google, Instagram, Twitter, Youtube } from "../assets/icons";
 import logo from "../assets/logo-vertical.svg";
 
@@ -13,23 +14,21 @@ const Footer = () => {
 					<div className="col">
 						<nav>
 							<ul className="nav-column">
+								{mainNav.map(m => (
+									<li key={m.id} className="nav-item">
+										{m.variant === "link" ? (
+											<NavLink to={m.path} className="nav-link">
+												{m.name}
+											</NavLink>
+										) : (
+											<NavLink to={m.path} className="nav-link btn btn-primary">
+												{m.name}
+											</NavLink>
+										)}
+									</li>
+								))}
 								<li className="nav-item">
-									<Link to="" className="nav-link">Home</Link>
-								</li>
-								<li className="nav-item">
-									<Link to="" className="nav-link">About</Link>
-								</li>
-								<li className="nav-item">
-									<Link to="" className="nav-link">Menu</Link>
-								</li>
-								<li className="nav-item">
-									<Link to="" className="nav-link">Reservations</Link>
-								</li>
-								<li className="nav-item">
-									<Link to="" className="nav-link btn btn-primary">Order Online</Link>
-								</li>
-								<li className="nav-item">
-									<Link to="" className="nav-link btn btn-subtle">Log in</Link>
+									<NavLink to="/account" className="nav-link btn btn-subtle">Log in</NavLink>
 								</li>
 							</ul>
 						</nav>
