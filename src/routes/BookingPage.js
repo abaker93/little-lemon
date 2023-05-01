@@ -1,12 +1,13 @@
+import { useState } from "react";
 import { Angle, Check, Minus, Plus } from "../assets/icons";
 import heroImg from "../assets/restaurant-chef.jpg";
 
-const Reservations = () => {
+const BookingPage = () => {
 	return (
 		<>
 			<Hero />
 			<Stepper />
-			<Form />
+			<BookingForm />
 		</>
 	)
 }
@@ -93,7 +94,48 @@ const Step = (props) => {
 	}
 }
 
-const Form = () => {
+const BookingForm = () => {
+	const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+
+	const today = new Date();
+	const currentDate = {
+		year:		today.getFullYear(),
+		month:	today.getMonth(),
+		date:		today.getDay(),
+		day:		today.getDate(),
+	}
+
+	const [month, setMonth] = useState(currentDate.month);
+	const [year, setYear] = useState(currentDate.year);
+
+	const [selectedDate, setSelectedDate] = useState({
+		year:		currentDate.year,
+		month:	currentDate.month,
+		date:		currentDate.date,
+	})
+
+	const handleClick = e => {
+		if (e === "nextMonth") {
+			if (month === 11) {
+				setMonth(0)
+				setYear(year++)
+			} else {
+				setMonth(month++)
+			}
+		}
+
+		if (e === "prevMonth") {
+			if (month === 0) {
+				setMonth(11)
+				setYear(year--)
+			} else {
+				setMonth(month--)
+			}
+		}
+	}
+
+	console.log(month, year)
+
 	return (
 		<form id="reservation">
 			<section id="reservation-details">
@@ -102,9 +144,9 @@ const Form = () => {
 					<div className="row date-time">
 						<div className="col calendar">
 							<div className="row cal-title">
-								<Angle direction="left" fill="#333333" />
-								<p className="small">January 2023</p>
-								<Angle direction="right" fill="#333333" />
+								<Angle direction="left" fill="#333333" onClick={handleClick("prev")} />
+								<p className="small">{months[month]} {year}</p>
+								<Angle direction="right" fill="#333333" onClick={handleClick("next")} />
 							</div>
 							<div className="cal-days">
 								<div className="cal-day weekend">Su</div>
@@ -115,43 +157,7 @@ const Form = () => {
 								<div className="cal-day">Fr</div>
 								<div className="cal-day weekend">Sa</div>
 							</div>
-							<div className="cal-dates">
-								<div className="cal-date weekend disabled">1</div>
-								<div className="cal-date disabled">2</div>
-								<div className="cal-date disabled">3</div>
-								<div className="cal-date disabled">4</div>
-								<div className="cal-date disabled">5</div>
-								<div className="cal-date disabled">6</div>
-								<div className="cal-date weekend disabled">7</div>
-								<div className="cal-date weekend disabled">8</div>
-								<div className="cal-date disabled">9</div>
-								<div className="cal-date today">10</div>
-								<div className="cal-date">11</div>
-								<div className="cal-date selected">12</div>
-								<div className="cal-date">13</div>
-								<div className="cal-date weekend">14</div>
-								<div className="cal-date weekend">15</div>
-								<div className="cal-date">16</div>
-								<div className="cal-date">17</div>
-								<div className="cal-date">18</div>
-								<div className="cal-date">19</div>
-								<div className="cal-date">20</div>
-								<div className="cal-date weekend">21</div>
-								<div className="cal-date weekend">22</div>
-								<div className="cal-date">23</div>
-								<div className="cal-date">24</div>
-								<div className="cal-date">25</div>
-								<div className="cal-date">26</div>
-								<div className="cal-date">27</div>
-								<div className="cal-date weekend">28</div>
-								<div className="cal-date weekend">29</div>
-								<div className="cal-date">30</div>
-								<div className="cal-date">31</div>
-								<div className="cal-date disabled">1</div>
-								<div className="cal-date disabled">2</div>
-								<div className="cal-date disabled">3</div>
-								<div className="cal-date weekend disabled">4</div>
-							</div>
+								<CalDates year={year} month={month} date={month === currentDate.month ? currentDate.date : null} day={month === currentDate.month ? currentDate.day : null}  />
 						</div>
 						<div className="col time-select">
 							<div className="row time-title">
@@ -180,7 +186,7 @@ const Form = () => {
 						</div>
 					</div>
 				</div>
-				<div class="container-sm">
+				<div className="container-sm">
 					<div className="row guests">
 						<div className="col">
 							<label htmlFor="guests" className="required">Number of Guests</label>
@@ -196,10 +202,10 @@ const Form = () => {
 							<label>Patio or Dining Room?</label>
 						</div>
 						<div className="col">
+						<input id="dining-room" type="radio" name="location" value="dining room" checked />
+							<label htmlFor="dining-room">Dining Room</label>
 							<input id="patio" type="radio" name="location" value="patio" />
 							<label htmlFor="patio">Patio</label>
-							<input id="dining-room" type="radio" name="location" value="dining room" checked />
-							<label htmlFor="dining-room">Dining Room</label>
 						</div>
 					</div>
 					<div className="row form-buttons">
@@ -211,4 +217,73 @@ const Form = () => {
 	)
 }
 
-export default Reservations;
+const CalDates = p => {
+	let first = new Date(`${p.month + 1} 1, ${p.year}`);
+	let day = first.getDay();
+	const monthLength = {
+		0: 31,
+		1: p.year % 4 === 0 ? p.year % 100 === 0 ? 29 : 28 : 28,
+		2: 31,
+		3: 30,
+		4: 31,
+		5: 30,
+		6: 31,
+		7: 31,
+		8: 30,
+		9: 31,
+		10: 30,
+		11: 31,
+	}
+	let i = 1;
+
+	let calendar = []
+
+	while (i < p.day) {
+		if (i === 1 && day !== 0) {
+			while (day > 0) {
+				calendar.push({class: null, date: null})
+				day === 0 ? day = 6 : day--
+			}
+		}
+		calendar.push({class: "disabled", date: i})
+		i++
+	}
+	day = p.day;
+
+	for (i; i <= monthLength[p.month]; i++) {
+		// console.log(i, day, p.date)
+		if (i === 1 && day !== 0) {
+			while (day > 0) {
+				calendar.push({class: null, date: null})
+				day--
+			}
+			day = p.day;
+		}
+		if (i === p.date) {
+			if (day === 0 || day === 6) {
+				calendar.push({class: "today weekend", date: i})
+			} else {
+				calendar.push({class: "today", date: i})
+			}
+			day === 6 ? day = 0 : day++
+		} else {
+			if (day === 0 || day === 6) {
+				console.log()
+				calendar.push({class: "weekend", date: i})
+			} else {
+				calendar.push({class: null, date: i})
+			}
+			day === 6 ? day = 0 : day++
+		}
+	}
+
+	return (
+		<div className="cal-dates">
+			{calendar.map((m, index) => (
+				<div key={index} className={`cal-date${m.class ? ` ${m.class}` : ""}`}>{m.date}</div>
+			))}
+		</div>
+	);
+}
+
+export default BookingPage;

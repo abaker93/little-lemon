@@ -2,7 +2,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import Error from "./routes/Error";
 import Home from "./routes/Home";
-import Reservations from "./routes/Reservations";
+import BookingPage from "./routes/BookingPage";
 import Root from "./routes/Root";
 
 import "./main.css";
@@ -14,7 +14,7 @@ const router = createBrowserRouter([
     errorElement: <Error />,
     children: [
       { index: true, element: <Home /> },
-      { path: '/reservations', element: <Reservations /> }
+      { path: '/reservations', element: <BookingPage /> }
     ]
   }
 ])

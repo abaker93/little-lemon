@@ -21,8 +21,8 @@ input[type=radio] {
 	&:checked::before {
 		content: '';
 		position: absolute;
-		width: 0.75em;
-		height: 0.75em;
+		width: 0.7em;
+		height: 0.7em;
 		background: $primary;
 		border-radius: $radius-circle;
 		left: calc(0.25em / 2);
