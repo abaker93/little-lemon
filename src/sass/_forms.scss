@@ -1,3 +1,13 @@
+input, textarea, select {
+	font-family: $font-family-sans-serif;
+	border-radius: $radius-sm;
+	border: 1px solid $dark;
+	padding: 0.25rem;
+	width: 100%;
+	font-size: 1rem;
+	color: $dark;
+}
+
 input[type=number] {
 	border: 0;
 	width: 2.2em;
@@ -17,6 +27,7 @@ input[type=radio] {
 	border-radius: $radius-circle;
 	margin: 0;
 	margin-top: -0.15em;
+	cursor: pointer;
 
 	&:checked::before {
 		content: '';

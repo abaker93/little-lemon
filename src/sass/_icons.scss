@@ -3,7 +3,8 @@
 .icon-20 { height: $icon-20 !important; }
 .icon-24 { height: $icon-24 !important; }
 
-a .icon {
+a .icon, button .icon {
+	cursor: pointer;
 	transition: $transition;
 	
 	&:hover, &:focus {

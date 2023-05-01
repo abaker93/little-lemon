@@ -56,6 +56,10 @@ a:not(.btn):not(.img-link) {
 	}
 }
 
+p { margin-bottom: 0.25rem; }
+
+strong { font-weight: $font-weight-bolder; }
+
 .large { font-size: 1.125em; }
 .small { font-size: 0.875em; }
 
@@ -79,3 +83,18 @@ a:not(.btn):not(.img-link) {
 	color: $white;
 	span { color: $secondary; }
 }
+
+.text-green { color: $green-500; }
+.text-yellow { color: $yellow-500; }
+.text-peach { color: $peach-500; }
+
+.font-weight-light { font-weight: $font-weight-light; }
+.font-weight-regular { font-weight: $font-weight-regular; }
+.font-weight-medium { font-weight: $font-weight-medium; }
+.font-weight-bold { font-weight: $font-weight-bold; }
+.font-weight-bolder { font-weight: $font-weight-bolder; }
+
+.text-align-left { text-align: left !important; }
+.text-align-center { text-align: center !important; }
+.text-align-right { text-align: right !important; }
+.text-align-justify { text-align: justify !important; }

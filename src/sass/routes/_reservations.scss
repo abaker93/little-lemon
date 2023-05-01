@@ -4,6 +4,9 @@
 
 #reservation {
 	margin-top: 3rem;
+	position: relative;
+	overflow: hidden;
+	padding-bottom: 4.25rem;
 
 	h2 {
 		text-align: center;
@@ -11,104 +14,132 @@
 	}
 }
 
-.date-time {
-	margin-top: 3rem;
-	margin-bottom: 3rem;
-	display: grid;
-	grid-template-columns: max-content auto;
-	gap: 3rem;
-}
+#reservation-information, #reservation-confirmation {
+	display: none;
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	background: $white;
 
-.calendar {
-	display: grid;
-	grid-auto-flow: row;
-	gap: 1rem;
-}
-
-.cal-title {
-	display: grid;
-	grid-auto-flow: column;
-	gap: 1rem;
-	justify-content: space-between;
-	align-items: center;
-
-	.icon { height: 0.875rem; }
-}
-
-.cal-days, .cal-dates {
-	display: grid;
-	grid-template-columns: repeat(7, minmax(0, 1fr));
-	gap: 1rem;
-}
-
-.cal-day, .cal-date {
-	display: grid;
-	align-content: center;
-	justify-content: center;
-	width: 1.5rem;
-	height: 1.5rem;
-	border: 2px solid rgba($dark, 0);
-	border-radius: calc($radius-sm / 2);
-	font-size: 0.875rem;
-	line-height: 1;
-
-	&.disabled { color: $gray-200; }
-	&.today { border-color: $dark; }
-	&.selected {
-		border-color: $dark;
-		background-color: $dark;
-		color: $white;
-	}
-
-	&.weekend {
-		color: $tertiary;
-
-		&.disabled { color: $gray-200; }
-		&.today { border-color: $tertiary; }
-		&.selected {
-			border-color: $tertiary;
-			background-color: $tertiary;
-			color: $dark;
-		}
+	&.show {
+		display: block;
 	}
 }
 
-.time-select {
-	display: grid;
-	grid-auto-flow: row;
-	align-content: flex-start;
-	gap: 0.25rem;
+#reservation-confirmation {
+	.row:nth-child(1) {
+		display: grid;
+		grid-template-columns: 3fr 4fr;
+		gap: 2rem;
+	}
+
+	img {
+		width: 100%;
+		border-radius: $radius-lg;
+	}
 }
 
-.time-title {
+// .date-time {
+// 	margin-top: 3rem;
+// 	margin-bottom: 3rem;
+// 	display: grid;
+// 	grid-template-columns: max-content auto;
+// 	gap: 3rem;
+// }
+
+// .calendar {
+// 	display: grid;
+// 	grid-auto-flow: row;
+// 	gap: 1rem;
+// }
+
+// .cal-title {
+// 	display: grid;
+// 	grid-auto-flow: column;
+// 	gap: 1rem;
+// 	justify-content: space-between;
+// 	align-items: center;
+
+// 	.icon { height: 0.875rem; }
+// }
+
+// .cal-days, .cal-dates {
+// 	display: grid;
+// 	grid-template-columns: repeat(7, minmax(0, 1fr));
+// 	gap: 1rem;
+// }
+
+// .cal-day, .cal-date {
+// 	display: grid;
+// 	align-content: center;
+// 	justify-content: center;
+// 	width: 1.5rem;
+// 	height: 1.5rem;
+// 	border: 2px solid rgba($dark, 0);
+// 	border-radius: calc($radius-sm / 2);
+// 	font-size: 0.875rem;
+// 	line-height: 1;
+
+// 	&.disabled { color: $gray-200; }
+// 	&.today { border-color: $dark; }
+// 	&.selected {
+// 		border-color: $dark;
+// 		background-color: $dark;
+// 		color: $white;
+// 	}
+
+// 	&.weekend {
+// 		color: $tertiary;
+
+// 		&.disabled { color: $gray-200; }
+// 		&.today { border-color: $tertiary; }
+// 		&.selected {
+// 			border-color: $tertiary;
+// 			background-color: $tertiary;
+// 			color: $dark;
+// 		}
+// 	}
+// }
+
+// .time-select {
+// 	display: grid;
+// 	grid-auto-flow: row;
+// 	align-content: flex-start;
+// 	gap: 0.25rem;
+// }
+
+// .time-title {
+// 	display: grid;
+// 	grid-template-columns: auto auto;
+// 	justify-content: space-between;
+
+// 	.icon {
+// 		height: 1.5rem;
+// 		width: 1.5rem;
+// 		border-radius: $radius-circle;
+// 		border: 5px solid $gray-100;
+// 		background-color: $gray-100;
+
+// 		&:not(:last-child) { margin-right: 0.5rem; }
+// 	}
+// }
+
+// .time-chips {
+// 	display: grid;
+// 	grid-template-columns: repeat(4, minmax(0, 1fr));
+// 	gap: 1rem;
+// }
+
+.fieldgroup {
 	display: grid;
 	grid-template-columns: auto auto;
-	justify-content: space-between;
-
-	.icon {
-		height: 1.5rem;
-		width: 1.5rem;
-		border-radius: $radius-circle;
-		border: 5px solid $gray-100;
-		background-color: $gray-100;
-
-		&:not(:last-child) { margin-right: 0.5rem; }
-	}
-}
-
-.time-chips {
-	display: grid;
-	grid-template-columns: repeat(4, minmax(0, 1fr));
-	gap: 1rem;
-}
-
-.guests, .location {
-	display: grid;
-	grid-template-columns: 1fr auto;
 	justify-content: space-between;
 	align-items: center;
 	margin-top: 1.5rem;
 	margin-bottom: 1.5rem;
+	gap: 2rem;
 
 	.col:nth-child(2) {
 		display: grid;
@@ -118,10 +149,17 @@
 		gap: 1rem;
 	}
 
-	.icon { width: 1rem; }
+	.icon {
+		height: 1rem;
+		width: 1rem;
+	}
+
+	&.fullwidth { grid-template-columns: 85px 1fr; }
 }
 
 .form-buttons {
 	display: grid;
-	justify-content: flex-end;
+	grid-auto-flow: column;
+	justify-content: space-between;
+	gap: 2rem;
 }

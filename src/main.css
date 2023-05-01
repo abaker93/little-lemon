@@ -139,6 +139,14 @@ a:not(.btn):not(.img-link):focus-visible {
   border-radius: 0.5rem;
 }
 
+p {
+  margin-bottom: 0.25rem;
+}
+
+strong {
+  font-weight: 800;
+}
+
 .large {
   font-size: 1.125em;
 }
@@ -169,6 +177,54 @@ a:not(.btn):not(.img-link):focus-visible {
   color: #F4CE14;
 }
 
+.text-green {
+  color: #495E57;
+}
+
+.text-yellow {
+  color: #F4CE14;
+}
+
+.text-peach {
+  color: #EE9972;
+}
+
+.font-weight-light {
+  font-weight: 100;
+}
+
+.font-weight-regular {
+  font-weight: 400;
+}
+
+.font-weight-medium {
+  font-weight: 500;
+}
+
+.font-weight-bold {
+  font-weight: 700;
+}
+
+.font-weight-bolder {
+  font-weight: 800;
+}
+
+.text-align-left {
+  text-align: left !important;
+}
+
+.text-align-center {
+  text-align: center !important;
+}
+
+.text-align-right {
+  text-align: right !important;
+}
+
+.text-align-justify {
+  text-align: justify !important;
+}
+
 footer {
   background: #EDF2F1;
   margin-top: 4rem;
@@ -194,6 +250,14 @@ footer {
   margin-bottom: 1rem;
 }
 
+.social {
+  display: grid;
+  grid-template-columns: repeat(5, 1.5rem);
+  gap: 0.75rem;
+  align-items: center;
+  justify-content: start;
+}
+
 .heel {
   grid-template-columns: auto auto;
   justify-content: space-between;
@@ -205,14 +269,6 @@ footer {
   font-size: 0.75rem;
   color: #72827D;
   margin: 0;
-}
-
-.social {
-  display: grid;
-  grid-template-columns: repeat(5, 1.5rem);
-  gap: 0.75rem;
-  align-items: center;
-  justify-content: start;
 }
 
 .container, .container-sm, .container-lg {
@@ -360,8 +416,10 @@ footer {
 .btn {
   display: inline-block;
   padding: 1rem 1.5rem;
+  border: none;
   border-radius: 50rem;
   line-height: 0.6;
+  font-family: "Karla", sans-serif;
   font-weight: 500;
   transition: all ease-in-out 0.15s;
 }
@@ -378,6 +436,10 @@ footer {
   background: #F4CE14;
   color: #333333;
 }
+.btn-primary:disabled {
+  background: #C4CBC8;
+  color: #727272;
+}
 
 .btn-secondary {
   background: #F4CE14;
@@ -387,6 +449,10 @@ footer {
   background: #495E57;
   color: #FFFFFF;
 }
+.btn-secondary:disabled {
+  background: #fbeba1;
+  color: #727272;
+}
 
 .btn-subtle {
   background: #E4E5E5;
@@ -395,6 +461,10 @@ footer {
 .btn-subtle:hover {
   background: #495E57;
   color: #FFFFFF;
+}
+.btn-subtle:disabled {
+  background: #C4CBC8;
+  color: #727272;
 }
 
 .btn-icon {
@@ -423,6 +493,13 @@ footer {
   background: #F5E3D6;
 }
 
+.btn-text {
+  padding: 0;
+  color: #495E57;
+  background: transparent;
+  border: none;
+}
+
 .chip {
   border-radius: 0.5rem;
   border: 2px solid #333333;
@@ -439,6 +516,16 @@ footer {
 .chip.selected {
   background-color: #333333;
   color: #FFFFFF;
+}
+
+input, textarea, select {
+  font-family: "Karla", sans-serif;
+  border-radius: 0.5rem;
+  border: 1px solid #333333;
+  padding: 0.25rem;
+  width: 100%;
+  font-size: 1rem;
+  color: #333333;
 }
 
 input[type=number] {
@@ -460,6 +547,7 @@ input[type=radio] {
   border-radius: 50%;
   margin: 0;
   margin-top: -0.15em;
+  cursor: pointer;
 }
 input[type=radio]:checked::before {
   content: "";
@@ -495,10 +583,11 @@ label.required::after {
   height: 1.5rem !important;
 }
 
-a .icon {
+a .icon, button .icon {
+  cursor: pointer;
   transition: all ease-in-out 0.15s;
 }
-a .icon:hover, a .icon:focus {
+a .icon:hover, a .icon:focus, button .icon:hover, button .icon:focus {
   opacity: 0.7;
 }
 
@@ -730,131 +819,67 @@ a .icon:hover, a .icon:focus {
 
 #reservation {
   margin-top: 3rem;
+  position: relative;
+  overflow: hidden;
+  padding-bottom: 4.25rem;
 }
 #reservation h2, #reservation .title span, .title #reservation span {
   text-align: center;
   margin-bottom: 3rem;
 }
 
-.date-time {
-  margin-top: 3rem;
-  margin-bottom: 3rem;
-  display: grid;
-  grid-template-columns: max-content auto;
-  gap: 3rem;
+#reservation-information, #reservation-confirmation {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: #FFFFFF;
+}
+#reservation-information.show, #reservation-confirmation.show {
+  display: block;
 }
 
-.calendar {
+#reservation-confirmation .row:nth-child(1) {
   display: grid;
-  grid-auto-flow: row;
-  gap: 1rem;
+  grid-template-columns: 3fr 4fr;
+  gap: 2rem;
+}
+#reservation-confirmation img {
+  width: 100%;
+  border-radius: 1rem;
 }
 
-.cal-title {
-  display: grid;
-  grid-auto-flow: column;
-  gap: 1rem;
-  justify-content: space-between;
-  align-items: center;
-}
-.cal-title .icon {
-  height: 0.875rem;
-}
-
-.cal-days, .cal-dates {
-  display: grid;
-  grid-template-columns: repeat(7, minmax(0, 1fr));
-  gap: 1rem;
-}
-
-.cal-day, .cal-date {
-  display: grid;
-  align-content: center;
-  justify-content: center;
-  width: 1.5rem;
-  height: 1.5rem;
-  border: 2px solid rgba(51, 51, 51, 0);
-  border-radius: 0.25rem;
-  font-size: 0.875rem;
-  line-height: 1;
-}
-.cal-day.disabled, .cal-date.disabled {
-  color: #CFCFCF;
-}
-.cal-day.today, .cal-date.today {
-  border-color: #333333;
-}
-.cal-day.selected, .cal-date.selected {
-  border-color: #333333;
-  background-color: #333333;
-  color: #FFFFFF;
-}
-.cal-day.weekend, .cal-date.weekend {
-  color: #EE9972;
-}
-.cal-day.weekend.disabled, .cal-date.weekend.disabled {
-  color: #CFCFCF;
-}
-.cal-day.weekend.today, .cal-date.weekend.today {
-  border-color: #EE9972;
-}
-.cal-day.weekend.selected, .cal-date.weekend.selected {
-  border-color: #EE9972;
-  background-color: #EE9972;
-  color: #333333;
-}
-
-.time-select {
-  display: grid;
-  grid-auto-flow: row;
-  align-content: flex-start;
-  gap: 0.25rem;
-}
-
-.time-title {
+.fieldgroup {
   display: grid;
   grid-template-columns: auto auto;
-  justify-content: space-between;
-}
-.time-title .icon {
-  height: 1.5rem;
-  width: 1.5rem;
-  border-radius: 50%;
-  border: 5px solid #E4E5E5;
-  background-color: #E4E5E5;
-}
-.time-title .icon:not(:last-child) {
-  margin-right: 0.5rem;
-}
-
-.time-chips {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 1rem;
-}
-
-.guests, .location {
-  display: grid;
-  grid-template-columns: 1fr auto;
   justify-content: space-between;
   align-items: center;
   margin-top: 1.5rem;
   margin-bottom: 1.5rem;
+  gap: 2rem;
 }
-.guests .col:nth-child(2), .location .col:nth-child(2) {
+.fieldgroup .col:nth-child(2) {
   display: grid;
   grid-auto-flow: column;
   justify-content: flex-end;
   align-items: center;
   gap: 1rem;
 }
-.guests .icon, .location .icon {
+.fieldgroup .icon {
+  height: 1rem;
   width: 1rem;
+}
+.fieldgroup.fullwidth {
+  grid-template-columns: 85px 1fr;
 }
 
 .form-buttons {
   display: grid;
-  justify-content: flex-end;
+  grid-auto-flow: column;
+  justify-content: space-between;
+  gap: 2rem;
 }
 
 /*# sourceMappingURL=main.css.map */

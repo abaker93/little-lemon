@@ -1,8 +1,10 @@
 .btn {
 	display: inline-block;
 	padding: 1rem 1.5rem;
+	border: none;
 	border-radius: $radius-pill;
 	line-height: 0.6;
+	font-family: $font-family-sans-serif;
 	font-weight: $font-weight-medium;
 	transition: $transition;
 
@@ -20,6 +22,11 @@
 		background: $secondary;
 		color: $dark;
 	}
+
+	&:disabled {
+		background: $green-200;
+		color: $gray-500;
+	}
 }
 
 .btn-secondary {
@@ -30,6 +37,11 @@
 		background: $primary;
 		color: $white;
 	}
+
+	&:disabled {
+		background: $yellow-200;
+		color: $gray-500;
+	}
 }
 
 .btn-subtle {
@@ -39,6 +51,11 @@
 	&:hover {
 		background: $primary;
 		color: $white;
+	}
+
+	&:disabled {
+		background: $green-200;
+		color: $gray-500;
 	}
 }
 
@@ -66,4 +83,11 @@
 
 		&:hover { background: $peach-200; }
 	}
+}
+
+.btn-text {
+	padding: 0;
+	color: $primary;
+	background: transparent;
+	border: none;
 }
