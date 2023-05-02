@@ -4,21 +4,8 @@ import { Check, Minus, Plus } from "../assets/icons";
 import map from '../assets/map.jpg';
 
 const BookingForm = props => {
-	const [currentStep, setCurrentStep] = useState(1);
+	const [currentStep, availableTimes, occasions, date, time, guests, location, name, phone, email, occasion, other, requests, dispatch] = [props.currentStep, props.availableTimes, props.occasions, props.date, props.time, props.guests, props.location, props.name, props.phone, props.email, props.occasion, props.other, props.requests, props.dispatch]
 	const [fullDate, setFullDate] = useState("");
-
-	const [date, setDate] = useState("");
-	const [time, setTime] = useState("Select a time");
-	const [guests, setGuests] = useState(1);
-	const [location, setLocation] = useState("Dining Room");
-	const [name, setName] = useState("");
-	const [phone, setPhone] = useState("");
-	const [email, setEmail] = useState("");
-	const [occasion, setOccasion] = useState("Select an occasion");
-	const [other, setOther] = useState("");
-	const [requests, setRequests] = useState("");
-
-	const occasionOptions = ["Select an occasion", "Dinner", "Anniversary", "Birthday", "Celebration", "Corporate", "Holiday", "Private", "Wedding", "Other"];
 
 	const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 	const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
@@ -65,20 +52,20 @@ const BookingForm = props => {
 							step={1}
 							label="Reservation Details"
 							currentStep={currentStep}
-							setCurrentStep={setCurrentStep}
+							dispatch={dispatch}
 						/>
 						<Step
 							step={2}
 							label="Your Information"
 							currentStep={currentStep}
-							setCurrentStep={setCurrentStep}
+							dispatch={dispatch}
 							disabled={!checkValidation1()}
 						/>
 						<Step
 							step={3}
 							label="Confirmation"
 							currentStep={currentStep}
-							setCurrentStep={setCurrentStep}
+							dispatch={dispatch}
 							disabled={!checkValidation2()}
 						/>
 					</section>
@@ -95,7 +82,7 @@ const BookingForm = props => {
 								id="date"
 								name="date"
 								value={date}
-								onChange={e => setDate(e.target.value)}
+								onChange={e => dispatch({ type: "date", payload: e.target.value})}
 								type="date"
 								required
 							/>
@@ -106,9 +93,10 @@ const BookingForm = props => {
 								id="time"
 								name="time"
 								value={time}
-								onChange={e => setTime(e.target.value)}
+								onChange={e => dispatch({ type: "time", payload: e.target.value})}
 							>
-								{props.availableTimes.map(option => (
+								<option value="Select a time">Select a time</option>
+								{availableTimes.map(option => (
 									<option key={option} value={option}>{option}</option>
 								))}
 							</select>
@@ -119,18 +107,18 @@ const BookingForm = props => {
 								<p className="small">Choose a number between 1 & 10</p>
 							</div>
 							<div className="col">
-								<button className="btn btn-text" onClick={() => guests > 1 ? setGuests(guests - 1) : setGuests(1)}>
+								<button className="btn btn-text" onClick={() => guests > 1 ? dispatch({ type: "guests", payload: guests - 1}) : dispatch({ type: "guests", payload: 1})}>
 									<Minus />
 								</button>
 								<input
 									id="guests"
 									name="guests"
 									value={guests}
-									onChange={e => setGuests(e.target.value)}
+									onChange={e => dispatch({ type: "guests", payload: e.target.value})}
 									type="number"
 									required
 								/>
-								<button className="btn btn-text" onClick={() => guests < 10 ? setGuests(guests + 1) : setGuests(10)}>
+								<button className="btn btn-text" onClick={() => guests < 10 ? dispatch({ type: "guests", payload: guests + 1}) : dispatch({ type: "guests", payload: 10})}>
 									<Plus />
 								</button>
 							</div>
@@ -142,7 +130,7 @@ const BookingForm = props => {
 									id="dining-room"
 									name="location"
 									value="Dining Room"
-									onChange={e => setLocation(e.target.value)}
+									onChange={e => dispatch({ type: "location", payload: e.target.value})}
 									checked={location === "Dining Room"}
 									type="radio"
 								/>
@@ -151,7 +139,7 @@ const BookingForm = props => {
 									id="patio"
 									name="location"
 									value="Patio"
-									onChange={e => setLocation(e.target.value)}
+									onChange={e => dispatch({ type: "location", payload: e.target.value})}
 									checked={location === "Patio"}
 									type="radio"
 								/>
@@ -161,7 +149,7 @@ const BookingForm = props => {
 						<div className="form-buttons justify-content-end">
 							<button
 								className="btn btn-primary"
-								onClick={() => setCurrentStep(2)}
+								onClick={() => dispatch({ type: "currentStep", payload: 2})}
 								disabled={!checkValidation1()}
 							>Next</button>
 						</div>
@@ -174,7 +162,7 @@ const BookingForm = props => {
 								id="name"
 								name="name"
 								value={name}
-								onChange={e => setName(e.target.value)}
+								onChange={e => dispatch({ type: "name", payload: e.target.value})}
 								type="text"
 								placeholder="John Smith"
 								required
@@ -186,7 +174,7 @@ const BookingForm = props => {
 								id="phone"
 								name="phone"
 								value={phone}
-								onChange={e => setPhone(e.target.value)}
+								onChange={e => dispatch({ type: "phone", payload: e.target.value})}
 								type="phone"
 								placeholder="000-000-0000"
 								required
@@ -198,7 +186,7 @@ const BookingForm = props => {
 								id="email"
 								name="email"
 								value={email}
-								onChange={e => setEmail(e.target.value)}
+								onChange={e => dispatch({ type: "email", payload: e.target.value})}
 								type="email"
 								placeholder="johnsmith@example.com"
 							/>
@@ -209,21 +197,21 @@ const BookingForm = props => {
 								id="occasion"
 								name="occasion"
 								value={occasion}
-								onChange={e => setOccasion(e.target.value)}
+								onChange={e => dispatch({ type: "occasion", payload: e.target.value })}
 							>
-								{occasionOptions.map(option => (
+								{occasions.map(option => (
 									<option key={option} value={option}>{option}</option>
 								))}
 							</select>
 						</fieldset>
 						{occasion === "Other" ? (
 							<fieldset className="fullwidth">
-								<label htmlFor="other">Other</label>
+								<label htmlFor="other" className="required">Other</label>
 								<input
 									id="other"
 									name="other"
 									value={other}
-									onChange={e => setOther(e.target.value)}
+									onChange={e => dispatch({ type: "other", payload: e.target.value })}
 									type="text"
 									required={occasion === "Other"}
 								/>
@@ -235,19 +223,19 @@ const BookingForm = props => {
 								id="requests"
 								name="requests"
 								value={requests}
-								onChange={e => setRequests(e.target.value)}
+								onChange={e => dispatch({ type: "requests", payload: e.target.value })}
 							></textarea>
 						</fieldset>
 						<div className="form-buttons">
 							<button
 								className="btn btn-subtle"
-								onClick={() => setCurrentStep(1)}
+								onClick={() => dispatch({ type: "currentStep", payload: 1})}
 							>Back</button>
 							<input
 								type="submit"
 								className="btn btn-primary"
 								value="Reserve a table"
-								onClick={() => setCurrentStep(3)}
+								onClick={() => dispatch({ type: "currentStep", payload: 3})}
 								disabled={!checkValidation2()}
 							/>
 						</div>
@@ -295,13 +283,11 @@ const FormSection = props => {
 }
 
 const Step = props => {
-	const step = props.step;
-	const currentStep = props.currentStep;
-	const setCurrentStep = props.setCurrentStep;
+	const [step, currentStep, dispatch] = [props.step, props.currentStep, props.dispatch];
 
 	if (step < currentStep) {
 		return (
-			<div className={`step complete${props.disabled ? " disabled" : ""}`} onClick={() => !props.disabled ? setCurrentStep(step) : null}>
+			<div className={`step complete${props.disabled ? " disabled" : ""}`} onClick={() => !props.disabled ? dispatch({ type: "currentStep", payload: step }) : null}>
 				<div className="step-icon">
 					<Check fill="#FFFFFF" />
 				</div>
@@ -312,7 +298,7 @@ const Step = props => {
 
 	if (step === currentStep) {
 		return (
-			<div className={`step current${props.disabled ? " disabled" : ""}`} onClick={() => !props.disabled ? setCurrentStep(step) : null}>
+			<div className={`step current${props.disabled ? " disabled" : ""}`} onClick={() => !props.disabled ? dispatch({ type: "currentStep", payload: step }) : null}>
 				<div className="step-icon">
 					{props.step}
 				</div>
@@ -323,7 +309,7 @@ const Step = props => {
 
 	if (step > currentStep) {
 		return (
-			<div className={`step${props.disabled ? " disabled" : ""}`} onClick={() => !props.disabled ? setCurrentStep(step) : null}>
+			<div className={`step${props.disabled ? " disabled" : ""}`} onClick={() => !props.disabled ? dispatch({ type: "currentStep", payload: step }) : null}>
 				<div className="step-icon">
 					{props.step}
 				</div>

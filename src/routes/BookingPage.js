@@ -1,9 +1,34 @@
-import { useState } from "react";
+import { useReducer, useState } from "react";
+import { fetchAPI, submitAPI } from "../data/api";
 import BookingForm from "../components/BookingForm";
 import heroImg from "../assets/restaurant-chef.jpg";
 
+const reducer = (state, action) => {
+	const { type, payload } = action;
+	return { ...state, [type]: payload }
+}
+
 const BookingPage = () => {
-	const [availableTimes, setAvailableTimes] = useState(["Select a time", "4:00 PM", "4:30 PM", "5:00 PM", "5:30 PM", "6:00 PM", "6:30 PM", "7:00 PM", "7:30 PM", "8:00 PM", "8:30 PM"]);
+	const today = new Date();
+	const occasions = ["Select an occasion", "Dinner", "Anniversary", "Birthday", "Celebration", "Corporate", "Holiday", "Private", "Wedding", "Other"]
+
+	const initState = {
+		currentStep: 1,
+		availableTimes: fetchAPI(today),
+		occasions: occasions,
+		date: "",
+		time: "Select a time",
+		guests: 1,
+		location: "Dining Room",
+		name: "",
+		phone: "",
+		email: "",
+		occasion: "Select an occasion",
+		other: "",
+		requests: "",
+	};
+
+	const [state, dispatch] = useReducer(reducer, initState);
 
 	return (
 		<>
@@ -18,7 +43,7 @@ const BookingPage = () => {
 					</div>
 				</div>
 			</section>
-			<BookingForm availableTimes={availableTimes} setAvailableTimes={setAvailableTimes} />
+			<BookingForm {...state} dispatch={dispatch} />
 		</>
 	)
 }
