@@ -1,11 +1,13 @@
 #stepper { margin-bottom: 3rem; }
 
-#form-container {
+.form-container {
 	margin-top: 3rem;
 	padding-bottom: 7.75rem;
 	position: relative;
 	overflow: hidden;
+}
 
+#reservation {
 	h2 {
 		text-align: center;
 		margin-bottom: 3rem;
@@ -15,13 +17,11 @@
 #reservation-information, #reservation-confirmation {
 	position: absolute;
 	top: 0;
-	left: 101%;
+	left: 0;
 	height: 100%;
 	width: 100%;
 	background: $white;
 	transition: all ease-in-out 0.5s;
-	
-	&.show { left: 0; }
 }
 
 #reservation-confirmation {

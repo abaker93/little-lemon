@@ -1,5 +1,5 @@
-import { useReducer, useState } from "react";
-import { fetchAPI, submitAPI } from "../data/api";
+import { useEffect, useReducer } from "react";
+import { fetchAPI } from "../data/api";
 import BookingForm from "../components/BookingForm";
 import heroImg from "../assets/restaurant-chef.jpg";
 
@@ -16,7 +16,7 @@ const BookingPage = () => {
 		currentStep: 1,
 		availableTimes: fetchAPI(today),
 		occasions: occasions,
-		date: "",
+		date: today,
 		time: "Select a time",
 		guests: 1,
 		location: "Dining Room",
@@ -29,6 +29,10 @@ const BookingPage = () => {
 	};
 
 	const [state, dispatch] = useReducer(reducer, initState);
+
+	useEffect(() => {
+		dispatch({ type: "availableTimes", payload: fetchAPI(new Date(state.date)) })
+	}, [state.date])
 
 	return (
 		<>
@@ -43,7 +47,7 @@ const BookingPage = () => {
 					</div>
 				</div>
 			</section>
-			<BookingForm {...state} dispatch={dispatch} />
+			<BookingForm state={state} dispatch={dispatch} />
 		</>
 	)
 }

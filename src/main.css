@@ -829,13 +829,14 @@ a .icon:hover, a .icon:focus, button .icon:hover, button .icon:focus {
   margin-bottom: 3rem;
 }
 
-#form-container {
+.form-container {
   margin-top: 3rem;
   padding-bottom: 7.75rem;
   position: relative;
   overflow: hidden;
 }
-#form-container h2, #form-container .title span, .title #form-container span {
+
+#reservation h2, #reservation .title span, .title #reservation span {
   text-align: center;
   margin-bottom: 3rem;
 }
@@ -843,14 +844,11 @@ a .icon:hover, a .icon:focus, button .icon:hover, button .icon:focus {
 #reservation-information, #reservation-confirmation {
   position: absolute;
   top: 0;
-  left: 101%;
+  left: 0;
   height: 100%;
   width: 100%;
   background: #FFFFFF;
   transition: all ease-in-out 0.5s;
-}
-#reservation-information.show, #reservation-confirmation.show {
-  left: 0;
 }
 
 #reservation-confirmation .row:nth-child(1) {
