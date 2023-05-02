@@ -29,6 +29,8 @@
 	&:not(:last-child)::after {
 		right: 0;
 	}
+
+	&.disabled .step-icon { cursor: default !important; }
 }
 
 .step-icon {
@@ -41,6 +43,7 @@
 	text-align: center;
 	color: $gray-400;
 	font-weight: $font-weight-medium;
+	cursor: pointer;
 }
 
 .step-label {

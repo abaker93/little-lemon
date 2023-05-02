@@ -66,6 +66,14 @@ img {
   justify-self: center;
 }
 
+.justify-content-start {
+  justify-content: start !important;
+}
+
+.justify-content-end {
+  justify-content: end !important;
+}
+
 html, body {
   font-family: "Karla", sans-serif;
   font-size: 16px;
@@ -619,6 +627,9 @@ a .icon:hover, a .icon:focus, button .icon:hover, button .icon:focus {
 .step:not(:last-child)::after {
   right: 0;
 }
+.step.disabled .step-icon {
+  cursor: default !important;
+}
 
 .step-icon {
   background-color: #E4E5E5;
@@ -630,6 +641,7 @@ a .icon:hover, a .icon:focus, button .icon:hover, button .icon:focus {
   text-align: center;
   color: #919191;
   font-weight: 500;
+  cursor: pointer;
 }
 
 .step-label {
@@ -817,28 +829,28 @@ a .icon:hover, a .icon:focus, button .icon:hover, button .icon:focus {
   margin-bottom: 3rem;
 }
 
-#reservation {
+#form-container {
   margin-top: 3rem;
+  padding-bottom: 4.25rem;
   position: relative;
   overflow: hidden;
-  padding-bottom: 4.25rem;
 }
-#reservation h2, #reservation .title span, .title #reservation span {
+#form-container h2, #form-container .title span, .title #form-container span {
   text-align: center;
   margin-bottom: 3rem;
 }
 
 #reservation-information, #reservation-confirmation {
-  display: none;
   position: absolute;
   top: 0;
-  left: 0;
+  left: 101%;
   height: 100%;
   width: 100%;
   background: #FFFFFF;
+  transition: all ease-in-out 0.5s;
 }
 #reservation-information.show, #reservation-confirmation.show {
-  display: block;
+  left: 0;
 }
 
 #reservation-confirmation .row:nth-child(1) {
@@ -850,36 +862,46 @@ a .icon:hover, a .icon:focus, button .icon:hover, button .icon:focus {
   width: 100%;
   border-radius: 1rem;
 }
+#reservation-confirmation h2, #reservation-confirmation .title span, .title #reservation-confirmation span, #reservation-confirmation .date, #reservation-confirmation .phone, #reservation-confirmation .address {
+  margin-bottom: 2rem;
+}
+#reservation-confirmation .date {
+  font-weight: 500;
+  color: #495E57;
+}
+#reservation-confirmation .address {
+  margin-top: 3.5rem;
+}
 
-.fieldgroup {
+fieldset {
   display: grid;
   grid-template-columns: auto auto;
   justify-content: space-between;
   align-items: center;
+  gap: 2rem;
   margin-top: 1.5rem;
   margin-bottom: 1.5rem;
-  gap: 2rem;
 }
-.fieldgroup .col:nth-child(2) {
+fieldset.fullwidth {
+  grid-template-columns: 85px 1fr;
+}
+fieldset .col:nth-child(2) {
   display: grid;
   grid-auto-flow: column;
   justify-content: flex-end;
   align-items: center;
   gap: 1rem;
 }
-.fieldgroup .icon {
+fieldset .icon {
   height: 1rem;
   width: 1rem;
-}
-.fieldgroup.fullwidth {
-  grid-template-columns: 85px 1fr;
 }
 
 .form-buttons {
   display: grid;
   grid-auto-flow: column;
   justify-content: space-between;
-  gap: 2rem;
+  gap: 1.5rem;
 }
 
 /*# sourceMappingURL=main.css.map */
