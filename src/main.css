@@ -529,7 +529,7 @@ footer {
 input, textarea, select {
   font-family: "Karla", sans-serif;
   border-radius: 0.5rem;
-  border: 1px solid #333333;
+  border: 1px solid #B0B0B0;
   padding: 0.25rem;
   width: 100%;
   font-size: 1rem;
@@ -560,8 +560,8 @@ input[type=radio] {
 input[type=radio]:checked::before {
   content: "";
   position: absolute;
-  width: 0.7em;
-  height: 0.7em;
+  width: 0.75em;
+  height: 0.75em;
   background: #495E57;
   border-radius: 50%;
   left: 0.125em;
@@ -573,6 +573,41 @@ label.required::after {
   font-weight: 800;
   color: #EE9972;
   margin-left: 0.5rem;
+}
+
+label.radio {
+  display: grid;
+  grid-auto-flow: column;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.error {
+  grid-column: 1/3;
+  background: #F5E3D6;
+  padding: 1rem;
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 1.25rem auto;
+  align-items: center;
+  column-gap: 1rem;
+  color: #D27A5A;
+  font-weight: 500;
+  border-radius: 1rem;
+}
+.error::before {
+  content: "!";
+  border: 2px solid #D27A5A;
+  border-radius: 50%;
+  width: 2em;
+  height: 2em;
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 0.75em;
+  color: #D27A5A;
+  padding-top: 0.25em;
 }
 
 .icon-16 {
@@ -627,9 +662,6 @@ a .icon:hover, a .icon:focus, button .icon:hover, button .icon:focus {
 .step:not(:last-child)::after {
   right: 0;
 }
-.step.disabled .step-icon {
-  cursor: default !important;
-}
 
 .step-icon {
   background-color: #E4E5E5;
@@ -641,7 +673,6 @@ a .icon:hover, a .icon:focus, button .icon:hover, button .icon:focus {
   text-align: center;
   color: #919191;
   font-weight: 500;
-  cursor: pointer;
 }
 
 .step-label {
@@ -829,46 +860,12 @@ a .icon:hover, a .icon:focus, button .icon:hover, button .icon:focus {
   margin-bottom: 3rem;
 }
 
-.form-container {
+#reservation {
   margin-top: 3rem;
-  padding-bottom: 7.75rem;
-  position: relative;
-  overflow: hidden;
 }
-
 #reservation h2, #reservation .title span, .title #reservation span {
   text-align: center;
   margin-bottom: 3rem;
-}
-
-#reservation-information, #reservation-confirmation {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
-  background: #FFFFFF;
-  transition: all ease-in-out 0.5s;
-}
-
-#reservation-confirmation .row:nth-child(1) {
-  display: grid;
-  grid-template-columns: 3fr 4fr;
-  gap: 2rem;
-}
-#reservation-confirmation img {
-  width: 100%;
-  border-radius: 1rem;
-}
-#reservation-confirmation h2, #reservation-confirmation .title span, .title #reservation-confirmation span, #reservation-confirmation .date, #reservation-confirmation .phone, #reservation-confirmation .address {
-  margin-bottom: 2rem;
-}
-#reservation-confirmation .date {
-  font-weight: 500;
-  color: #495E57;
-}
-#reservation-confirmation .address {
-  margin-top: 3.5rem;
 }
 
 fieldset {
@@ -876,7 +873,8 @@ fieldset {
   grid-template-columns: auto auto;
   justify-content: space-between;
   align-items: center;
-  gap: 2rem;
+  column-gap: 2rem;
+  row-gap: 0.5rem;
   margin-top: 1.5rem;
   margin-bottom: 1.5rem;
 }

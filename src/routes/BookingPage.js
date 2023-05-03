@@ -4,18 +4,18 @@ import BookingForm from "../components/BookingForm";
 import heroImg from "../assets/restaurant-chef.jpg";
 
 const reducer = (state, action) => {
-	const { type, payload } = action;
-	return { ...state, [type]: payload }
+	const { type, value } = action;
+	return { ...state, [type]: value }
 }
 
 const BookingPage = () => {
-	const today = new Date();
-	const occasions = ["Select an occasion", "Dinner", "Anniversary", "Birthday", "Celebration", "Corporate", "Holiday", "Private", "Wedding", "Other"]
+	const d = new Date();
+	const today = `${d.getFullYear()}-${d.getUTCMonth() + 1 < 10 ? `0${d.getUTCMonth() + 1}` : d.getUTCMonth() + 1}-${d.getUTCDate() < 10 ? `0${d.getUTCDate()}` : d.getUTCDate()}`
 
 	const initState = {
 		currentStep: 1,
-		availableTimes: fetchAPI(today),
-		occasions: occasions,
+		availableTimes: fetchAPI(d),
+		availableOccasions: ["Dinner", "Anniversary", "Birthday", "Celebration", "Corporate", "Holiday", "Private", "Wedding", "Other"],
 		date: today,
 		time: "Select a time",
 		guests: 1,
@@ -31,7 +31,7 @@ const BookingPage = () => {
 	const [state, dispatch] = useReducer(reducer, initState);
 
 	useEffect(() => {
-		dispatch({ type: "availableTimes", payload: fetchAPI(new Date(state.date)) })
+		dispatch({ type: "availableTimes", value: fetchAPI(new Date(state.date)) })
 	}, [state.date])
 
 	return (
