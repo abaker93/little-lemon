@@ -1,8 +1,12 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
+import About from "./routes/About";
+import Account from "./routes/Account";
+import BookingPage from "./routes/BookingPage";
+import Cart from "./routes/Cart";
 import Error from "./routes/Error";
 import Home from "./routes/Home";
-import BookingPage from "./routes/BookingPage";
+import Menu from "./routes/Menu";
 import Root from "./routes/Root";
 
 import "./main.css";
@@ -14,7 +18,11 @@ const router = createBrowserRouter([
     errorElement: <Error />,
     children: [
       { index: true, element: <Home /> },
-      { path: '/reservations', element: <BookingPage /> }
+      { path: '/about', element: <About /> },
+      { path: '/menu', element: <Menu /> },
+      { path: '/reservations', element: <BookingPage /> },
+      { path: '/cart', element: <Cart /> },
+      { path: '/account', element: <Account /> },
     ]
   }
 ])
