@@ -2,7 +2,7 @@
 	display: grid;
 	grid-auto-flow: column;
 	grid-auto-columns: 1fr;
-	align-items: center;
+	align-items: flex-start;
 	justify-content: space-between;
 }
 
@@ -43,13 +43,13 @@
 	text-align: center;
 	color: $gray-400;
 	font-weight: $font-weight-medium;
-	// cursor: pointer;
 }
 
 .step-label {
 	font-size: $h6;
 	color: $gray-500;
 	font-weight: $font-weight-medium;
+	text-align: center;
 }
 
 .current, .complete {

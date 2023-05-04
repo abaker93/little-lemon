@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from "react";
-import { ErrorMessage, Field, Form, Formik, FormikProvider, useFormik } from "formik";
-import { object, string, number, date, InferType } from 'yup';
+import React, { useState } from "react";
+import { ErrorMessage, Field, Form, Formik } from "formik";
+import { object, string, number, date } from 'yup';
 import { submitAPI } from "../data/api";
 import ConfirmedBooking from "../components/ConfirmedBooking";
-import { Check, Minus, Plus } from "../assets/icons";
+import { Check } from "../assets/icons";
 
 const BookingForm = props => {
 	const [availableOccasions, availableTimes, dispatch, state] = [props.state.availableOccasions, props.state.availableTimes, props.dispatch, props.state];

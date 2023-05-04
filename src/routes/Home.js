@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useOutletContext } from "react-router-dom";
 import { menu, reviews } from "../data/data";
 import { Moped, Star } from "../assets/icons";
 import heroImg from "../assets/restaurant-food.jpg";
@@ -6,17 +6,19 @@ import aboutImg1 from "../assets/mario-adrian-1.jpg";
 import aboutImg2 from "../assets/mario-adrian-2.jpg";
 
 const Home = () => {
+	const windowWidth = useOutletContext();
+
 	return (
 		<>
-			<Hero />
+			<Hero windowWidth={windowWidth} />
 			<Specials />
 			<Reviews />
-			<About />
+			<About windowWidth={windowWidth} />
 		</>
 	)
 }
 
-const Hero = () => {
+const Hero = ({ windowWidth }) => {
 	return (
 		<section id="hero" className="hero-home">
 			<div className="container">
@@ -25,9 +27,11 @@ const Hero = () => {
 					<p className="large">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis.</p>
 					<Link to="/reservations" className="btn btn-primary btn-dark">Reserve a table</Link>
 				</div>
-				<div className="col image">
-					<img className="radius-lg" src={heroImg} alt="bruchetta on serving tray" />
-				</div>
+				{windowWidth < 992 ? null : (
+					<div className="col image">
+						<img className="radius-lg" src={heroImg} alt="bruchetta on serving tray" />
+					</div>
+				)}
 			</div>
 		</section>
 	)
@@ -122,7 +126,8 @@ const Reviews = () => {
 	)
 }
 
-const About = () => {
+const About = ({ windowWidth }) => {
+	console.log(windowWidth)
 	return (
 		<section id="about">
 			<div className="container">
@@ -130,10 +135,12 @@ const About = () => {
 					<h2 className="title title-primary">Little Lemon <span>Chicago</span></h2>
 					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus nec fringilla accumsan, risus sem sollicitudin lacus, ut interdum tellus elit sed risus. Maecenas eget condimentum velit, sit amet feugiat lectus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</p>
 				</div>
-				<div className="col images">
-					<img src={aboutImg1} alt="mario and adrian" />
-					<img src={aboutImg2} alt="mario and adrian" />
-				</div>
+				{windowWidth < 992 ? null : (
+					<div className="col images">
+						<img src={aboutImg1} alt="mario and adrian" />
+						<img src={aboutImg2} alt="mario and adrian" />
+					</div>
+				)}
 			</div>
 		</section>
 	)
