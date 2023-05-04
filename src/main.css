@@ -868,6 +868,26 @@ a .icon:hover, a .icon:focus, button .icon:hover, button .icon:focus {
   margin-bottom: 3rem;
 }
 
+#reservation-confirmation .row:nth-child(1) {
+  display: grid;
+  grid-template-columns: 3fr 4fr;
+  gap: 2rem;
+}
+#reservation-confirmation img {
+  width: 100%;
+  border-radius: 1rem;
+}
+#reservation-confirmation h2, #reservation-confirmation .title span, .title #reservation-confirmation span, #reservation-confirmation .date, #reservation-confirmation .phone, #reservation-confirmation .address {
+  margin-bottom: 2rem;
+}
+#reservation-confirmation .date {
+  font-weight: 500;
+  color: #495E57;
+}
+#reservation-confirmation .address {
+  margin-top: 3.5rem;
+}
+
 fieldset {
   display: grid;
   grid-template-columns: auto auto;

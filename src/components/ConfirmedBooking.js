@@ -2,8 +2,7 @@ import { Link } from "react-router-dom";
 import map from '../assets/map.jpg';
 
 const ConfirmedBooking = props => {
-	const [time, fullDate] = [props.state.time, props.fullDate];
-	
+	const [time, fullDate, name] = [props.time, props.fullDate, props.name];
 
 	const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 	const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
@@ -16,7 +15,7 @@ const ConfirmedBooking = props => {
 						<img src={map} alt="map for little lemon" />
 					</div>
 					<div className="col">
-						<h2>Your table is booked!</h2>
+						<h2>{name}, your table is booked!</h2>
 						{fullDate ? (
 							<p className="date">We look forward to seeing you on <strong>{days[fullDate.getUTCDay()]}, {months[fullDate.getUTCMonth()]} {fullDate.getUTCDate()} at {time}</strong>.</p>
 						) : null}
@@ -28,10 +27,9 @@ const ConfirmedBooking = props => {
 						</div>
 					</div>
 				</div>
-				<div className="row form-buttons justify-content-start">
+				{/* <div className="row form-buttons justify-content-start">
 					<Link to="/menu" className="btn btn-primary">View Menu</Link>
-					<Link to="/reservations" className="btn btn-subtle">Make another reservation</Link>
-				</div>
+				</div> */}
 			</div>
 		</div>
 	)

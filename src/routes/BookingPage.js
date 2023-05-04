@@ -13,7 +13,7 @@ const BookingPage = () => {
 	const today = `${d.getFullYear()}-${d.getUTCMonth() + 1 < 10 ? `0${d.getUTCMonth() + 1}` : d.getUTCMonth() + 1}-${d.getUTCDate() < 10 ? `0${d.getUTCDate()}` : d.getUTCDate()}`
 
 	const initState = {
-		currentStep: 1,
+		currentStep: 0,
 		availableTimes: fetchAPI(d),
 		availableOccasions: ["Dinner", "Anniversary", "Birthday", "Celebration", "Corporate", "Holiday", "Private", "Wedding", "Other"],
 		date: today,
