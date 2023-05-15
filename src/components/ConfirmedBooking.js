@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import map from '../assets/map.jpg';
 
 const ConfirmedBooking = props => {
@@ -27,9 +26,6 @@ const ConfirmedBooking = props => {
 						</div>
 					</div>
 				</div>
-				{/* <div className="row form-buttons justify-content-start">
-					<Link to="/menu" className="btn btn-primary">View Menu</Link>
-				</div> */}
 			</div>
 		</div>
 	)

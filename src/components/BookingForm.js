@@ -60,17 +60,11 @@ const BookingForm = props => {
 							<p className="small">Choose a number between 1 & 10.</p>
 						</div>
 						<div className="col">
-							{/* <button type="button" className="btn btn-text" onClick={() => state.guests > 1 ? dispatch({ type: "guests", value: state.guests - 1 }) : dispatch({ type: "guests", value: 1 })}>
-								<Minus />
-							</button> */}
 							<Field
 								type="number"
 								id="guests"
 								name="guests"
 							/>
-							{/* <button type="button" className="btn btn-text" onClick={() => state.guests < 10 ? dispatch({ type: "guests", value: state.guests + 1 }) : dispatch({ type: "guests", value: 10 })}>
-								<Plus />
-							</button> */}
 						</div>
 						<ErrorMessage className="error" component="div" name="guests" />
 					</fieldset>
@@ -187,7 +181,6 @@ const FormContainer = props => {
 	const [snapshot, setSnapshot] = useState(props.initialValues);
 	const [fullDate, setFullDate] = useState()
 	const [confirmation, setConfirmation] = useState(false);
-	const [valid, setValid] = useState(false)
 	
 	const totalSteps = steps.length;
 	const step = stepNumber < totalSteps ? steps[stepNumber] : steps[stepNumber-1];

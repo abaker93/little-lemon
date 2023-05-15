@@ -1033,12 +1033,15 @@ fieldset .icon {
     width: 6.75rem;
   }
   #hero::before {
-    background-position: -2% 50%;
+    background-position: 88% 50%;
     background-size: 25vh;
   }
   #hero::after {
-    background-position: 15% -210%;
+    background-position: 102% -150%;
     background-size: 16vh;
+  }
+  #hero.hero-home::after {
+    background-position: 102% 490%;
   }
   #hero .container, #hero .container-lg, #hero .container-sm {
     grid-auto-flow: column;
@@ -1070,6 +1073,7 @@ fieldset .icon {
   }
   #reviews .reviews {
     grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 2rem;
   }
   #about .container, #about .container-lg, #about .container-sm {
     grid-auto-columns: repeat(2, minmax(0, 1fr));

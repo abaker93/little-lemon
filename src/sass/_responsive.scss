@@ -60,14 +60,16 @@
 	#hero {
 		
 		&::before {
-			background-position: -2% 50%;
+			background-position: 88% 50%;
 			background-size: 25vh;
 		}
 
 		&::after {
-			background-position: 15% -210%;
+			background-position: 102% -150%;
 			background-size: 16vh;
 		}
+
+		&.hero-home::after { background-position: 102% 490%; }
 
 		.container {
 			grid-auto-flow: column;
@@ -103,7 +105,10 @@
 			background-size: 40vh;
 		}
 
-		.reviews { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+		.reviews {
+			grid-template-columns: repeat(4, minmax(0, 1fr));
+			gap: 2rem;
+		}
 	}
 
 	#about .container { grid-auto-columns: repeat(2, minmax(0, 1fr)); }

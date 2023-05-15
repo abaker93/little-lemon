@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/static/css/main.f846531a.css",
+    "main.js": "/static/js/main.421555c4.js",
+    "static/media/restaurant-chef.jpg": "/static/media/restaurant-chef.c9373b53b3f5a86150c4.jpg",
+    "static/media/greek-salad.jpg": "/static/media/greek-salad.9f565e4a5fa10865f2f4.jpg",
+    "static/media/restaurant-food.jpg": "/static/media/restaurant-food.8bbb002aa3bc6b7704dd.jpg",
+    "static/media/mario-adrian-1.jpg": "/static/media/mario-adrian-1.0c803c55913603c9f655.jpg",
+    "static/media/mario-adrian-2.jpg": "/static/media/mario-adrian-2.012728bcf8565756e2f5.jpg",
+    "static/media/bruchetta.jpg": "/static/media/bruchetta.0c4ac85e5b7c94f682ea.jpg",
+    "static/media/lemon-dessert.jpg": "/static/media/lemon-dessert.8b589747d0e9a5c969ec.jpg",
+    "static/media/logo-vertical.svg": "/static/media/logo-vertical.e021e534172f10c9962333814226e8fc.svg",
+    "static/media/map.jpg": "/static/media/map.8b77f0fc316ed7376412.jpg",
+    "static/media/logo-horizontal.svg": "/static/media/logo-horizontal.701a212e559cecf598c197cb389e776b.svg",
+    "static/media/elton-hayes.jpg": "/static/media/elton-hayes.4412719f69fafd18e70b.jpg",
+    "static/media/adriana-mitchell.jpg": "/static/media/adriana-mitchell.26f6be3b59eee7075088.jpg",
+    "static/media/destiny-garland.jpg": "/static/media/destiny-garland.1215d89e7efd0eeaa069.jpg",
+    "index.html": "/index.html",
+    "main.f846531a.css.map": "/static/css/main.f846531a.css.map",
+    "main.421555c4.js.map": "/static/js/main.421555c4.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.f846531a.css",
+    "static/js/main.421555c4.js"
+  ]
+}
