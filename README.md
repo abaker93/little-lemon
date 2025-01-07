@@ -2,7 +2,7 @@
 *Restaurant website development featuring a reservation booking feature.
 UX, UI Design, and Frontend Development.*
 
-[[ button to live site ]]
+[![view live website](/public/img/live-website.png)](https://little-lemon.annabaker.dev/)
 
 ## 01  |  Overview
 
@@ -17,11 +17,20 @@ Design and develop a new form to book a reservation online. In addition, the hom
 
 ---
 
+## [Figma File](https://www.figma.com/design/7BaYiizg6uUnGlDXKL8Y50/%5B%5B-Front-End-Developer-Capstone-%5D%5D-Little-Lemon?node-id=18-82&t=1LUBqNRqBfg7p5UU-1)
+
 ## 02  |  User Research
-[[ user persona here ]]
 
-[[ journey map here ]]
+### Client Requirements
+* About Little Lemon
+* Highlights and specials
+* Descriptions and photos of dishes
+* Navigation bar
+* Footer
+* Testimonials
 
----
+### User Persona
+![user persona](/public/img/user-persona.png)
 
-... rest of it here
+### Journey Map
+![journey map](/public/img/journey-map.png)
